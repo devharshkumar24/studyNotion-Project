@@ -214,6 +214,8 @@ exports.sendotp = async (req, res) => {
 		const otpPayload = { email, otp };
 		const otpBody = await OTP.create(otpPayload);
 		console.log("OTP Body", otpBody);
+		  // Set the CORS headers before sending the response
+		  res.set('Access-Control-Allow-Origin', 'https://study-notion-frontend-blush.vercel.app');
 		res.status(200).json({
 			success: true,
 			message: `OTP Sent Successfully`,
