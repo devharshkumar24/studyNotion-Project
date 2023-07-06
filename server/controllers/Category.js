@@ -33,6 +33,8 @@ exports.showAllCategories = async (req, res) => {
 	try {
         console.log("INSIDE SHOW ALL CATEGORIES");
 		const allCategorys = await Category.find({});
+     // Set the CORS headers before sending the response
+     res.set('Access-Control-Allow-Origin', 'https://study-notion-frontend-blush.vercel.app');
 		res.status(200).json({
 			success: true,
 			data: allCategorys,
